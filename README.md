@@ -10,16 +10,7 @@ The not-recommended synchronous way:
 ```js
 const ws = fs.createWriteStream('/path/to/socket/or/file/watched/by/telegraf');
 const metrics = new Metrics(ws);
-// not the recommended way because the code is synchronous - we want to move on
-let measurement = { measurement:"test", tags:{foo:"bar"} fields:{a:1}, ts:Date.now()};
-metrics.push( measurement );
-```
-
-The not-recommended synchronous way:
-```js
-const ws = fs.createWriteStream('/path/to/socket/or/file/watched/by/telegraf');
-const metrics = new Metrics(ws);
-// not the recommended way because the code is synchronous - we want to move on
+// not the recommended way because the code is synchronous - we otherwise want to move on quickly
 let measurement = { measurement:"test", tags:{foo:"bar"} fields:{a:1}, ts:Date.now()};
 metrics.push( measurement );
 ```
